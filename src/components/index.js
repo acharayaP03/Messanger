@@ -1,6 +1,6 @@
 import Header from './Header.vue';
 import ConversationArea from "./ConversationArea.vue";
-import ChatArea from "./ChatArea.vue";
+import ChatArea from "./ChatArea/index.vue";
 import {UserDetails, UserDetailsHeader} from './UserDetails';
 export {
     Header,

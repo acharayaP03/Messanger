@@ -135,7 +135,6 @@ html {
   max-width: 1600px;
   height: 100vh;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .header {
@@ -182,51 +181,6 @@ html {
   background: var(--overlay-bg);
   height: 80px;
 }
-
-
-
-
-
-.chat-area-footer {
-  display: flex;
-  border-top: 1px solid var(--border-color);
-  width: 100%;
-  padding: 10px 20px;
-  align-items: center;
-  background-color: var(--theme-bg-color);
-  position: sticky;
-  bottom: 0;
-  left: 0;
-}
-
-.chat-area-footer svg {
-  color: var(--settings-icon-color);
-  width: 20px;
-  flex-shrink: 0;
-  cursor: pointer;
-  &:hover {
-    color: var(--settings-icon-hover);
-  }
-
-  & + svg {
-    margin-left: 12px;
-  }
-}
-
-.chat-area-footer input {
-  border: none;
-  color: var(--body-color);
-  background-color: var(--input-bg);
-  padding: 12px;
-  border-radius: 6px;
-  font-size: 15px;
-  margin: 0 12px;
-  width: 100%;
-  &::placeholder {
-    color: var(--input-chat-color);
-  }
-}
-
 
 .developer img {
   border-radius: 50%;

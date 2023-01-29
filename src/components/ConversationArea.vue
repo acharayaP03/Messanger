@@ -209,8 +209,9 @@
 }
 
 .add {
-  position: sticky;
-  bottom: 25px;
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
   background-color: var(--theme-color);
   width: 60px;
   height: 60px;

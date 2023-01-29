@@ -6,14 +6,24 @@ import ChatArea from "./components/ChatArea.vue";
 </script>
 
 <template>
-  <Header/>
-    <main class="wrapper">
-      <ConversationArea/>
-      <ChatArea/>
-      <div class="detail-area">
-        <UserDetailsHeader/>
-        <UserDetails/>
-    </div>
-    </main>
-
+  <v-app>
+    <Header/>
+    <v-main class="wrapper">
+        <ConversationArea/>
+        <ChatArea/>
+        <div class="detail-area">
+          <UserDetailsHeader/>
+          <UserDetails/>
+        </div>
+    </v-main>
+  </v-app>
 </template>
+
+<style scoped lang="scss">
+
+.v-application{
+  max-height: 100vh;
+  position: relative;
+  overflow: auto;
+}
+</style>

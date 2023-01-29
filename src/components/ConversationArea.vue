@@ -116,7 +116,6 @@
       </div>
     </div>
     <button class="add"></button>
-    <div class="overlay"></div>
   </div>
 </template>
 <style scoped lang="scss">

@@ -205,30 +205,6 @@ html {
   }
 }
 
-.chat-area-group {
-  flex-shrink: 0;
-  display: flex;
-  * {
-    border: 2px solid var(--theme-bg-color);
-  }
-  * + * {
-    margin-left: -5px;
-  }
-
-  span {
-    width: 32px;
-    height: 32px;
-    background-color: var(--button-bg-color);
-    color: var(--theme-color);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 500;
-  }
-}
-
 @media (max-width: 1120px) {
   .detail-area {
     display: none;

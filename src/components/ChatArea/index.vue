@@ -1,3 +1,8 @@
+
+<script setup>
+import MessageArea from './MessageArea.vue'
+</script>
+
 <template>
   <div class="chat-area">
     <div class="chat-area-header">
@@ -109,28 +114,11 @@
         </v-col>
       </v-row>
     </v-card>
-    <div class="chat-area-footer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
-        <path d="M23 7l-7 5 7 5V7z" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <path d="M21 15l-5-5L5 21" /></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 8v8M8 12h8" /></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
-        <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
-      <input type="text" placeholder="Type something here..." />
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up">
-        <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" /></svg>
-    </div>
+    <MessageArea />
   </div>
 </template>
+
+
 <style scoped lang="scss">
   .chat-area {
     display: flex;
@@ -163,59 +151,87 @@
       overflow-y: auto;
       max-height: calc(100vh - 220px);
     }
+
+    &-group {
+      flex-shrink: 0;
+      display: flex;
+
+      * {
+        border: 2px solid var(--theme-bg-color);
+      }
+
+      * + * {
+        margin-left: -5px;
+      }
+
+      span {
+        width: 32px;
+        height: 32px;
+        background-color: var(--button-bg-color);
+        color: var(--theme-color);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
   }
 
-  .chat-msg-img {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .chat-msg-profile {
-    flex-shrink: 0;
-    margin-top: auto;
-    margin-bottom: -20px;
-    position: relative;
-  }
-
-  .chat-msg-date {
-    position: absolute;
-    left: calc(100% + 12px);
-    bottom: 0;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--msg-date);
-    white-space: nowrap;
-  }
-
-  .chat-msg {
+  .chat-msg{
     display: flex;
     padding: 0 20px 45px;
 
     &-content {
-       margin-left: 12px;
-       max-width: 70%;
-       display: flex;
-       flex-direction: column;
-       align-items: flex-start;
-     }
+      margin-left: 12px;
+      max-width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
     &-text {
-       background-color: var(--chat-text-bg);
-       padding: 15px;
-       border-radius: 20px 20px 20px 0;
-       line-height: 1.5;
-       font-size: 14px;
-       font-weight: 500;
+      color: var(--chat-text-color);
+      background-color: var(--chat-text-bg);
+      padding: 15px;
+      border-radius: 20px 20px 20px 0;
+      line-height: 1.5;
+      font-size: 14px;
+      font-weight: 500;
+
+      & img {
+        max-width: 300px;
+        width: 100%;
+      }
 
       & + & {
         margin-top: 10px;
       }
     }
-  }
 
-  .chat-msg-text {
-    color: var(--chat-text-color);
+    &-img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    &-profile {
+      flex-shrink: 0;
+      margin-top: auto;
+      margin-bottom: -20px;
+      position: relative;
+    }
+
+    &-date {
+      position: absolute;
+      left: calc(100% + 12px);
+      bottom: 0;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--msg-date);
+      white-space: nowrap;
+    }
   }
 
   .owner {
@@ -233,52 +249,6 @@
     .chat-msg-date {
       left: auto;
       right: calc(100% + 12px);
-    }
-  }
-
-  .chat-msg-text img {
-    max-width: 300px;
-    width: 100%;
-  }
-
-  .chat-area-footer {
-    display: flex;
-    border-top: 1px solid var(--border-color);
-    width: 100%;
-    padding: 10px 20px;
-    align-items: center;
-    background-color: var(--theme-bg-color);
-    position: sticky;
-    bottom: 0;
-    left: 0;
-  }
-
-  .chat-area-footer svg {
-    color: var(--settings-icon-color);
-    width: 20px;
-    flex-shrink: 0;
-    cursor: pointer;
-
-    &:hover {
-     color: var(--settings-icon-hover);
-   }
-
-  & + svg {
-      margin-left: 12px;
-    }
-  }
-
-  .chat-area-footer input {
-    border: none;
-    color: var(--body-color);
-    background-color: var(--input-bg);
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 15px;
-    margin: 0 12px;
-    width: 100%;
-    &::placeholder {
-       color: var(--input-chat-color);
     }
   }
 </style>

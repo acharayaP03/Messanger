@@ -1,7 +1,7 @@
 <script setup>
 import { Header, ConversationArea } from  './components'
 import {UserDetails, UserDetailsHeader } from  './components/UserDetails'
-import ChatArea from "./components/ChatArea.vue";
+import ChatArea from "./components/ChatArea/index.vue";
 
 </script>
 
